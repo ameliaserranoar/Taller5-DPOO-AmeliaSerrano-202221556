@@ -53,16 +53,16 @@ public class ComboTest {
 		assertTrue(combo.getItems().contains(producto3));
 	}
 	@Test
-	public void testGetNombre() {
+	void testGetNombre() {
 		assertEquals("combo corral", combo.getNombre());
 	}
 	@Test
-	public void testGetPrecio() {
+	void testGetPrecio() {
 		double precio = (14000+5500+5000)*0.1;
 		assertEquals(precio , combo.getPrecio());
 	}
 	@Test
-	public void testGenerarTextoFactura() {
+	void testGenerarTextoFactura() {
 		double precio = (14000+5500+5000)*0.1;
 		String esperado= "Combo combo corral\n" + "Descuento: 10.0 \n" + "            " + precio + "\n";
 		assertEquals(esperado, combo.generarTextoFactura());
@@ -76,7 +76,7 @@ public class ComboTest {
 		});
 	}
 	@Test
-	public void testProductoRepetidoException() {
+	void testProductoRepetidoException() {
 		ArrayList<ProductoMenu> itemsRepetidos = new ArrayList<>();
 		itemsRepetidos.add(producto1);
 		itemsRepetidos.add(producto1);

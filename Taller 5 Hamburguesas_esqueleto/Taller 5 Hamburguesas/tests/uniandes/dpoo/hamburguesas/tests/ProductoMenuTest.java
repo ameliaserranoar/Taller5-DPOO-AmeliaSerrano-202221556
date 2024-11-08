@@ -25,38 +25,38 @@ public class ProductoMenuTest {
 	}
 	
 	@Test
-	public void testCons() {
+	void testCons() {
 		assertEquals("corral", producto.getNombre());
 		assertEquals(14000,producto.getPrecio());	
 	}
 	@Test
-	public void testGetNombre() {
+	void testGetNombre() {
 		assertEquals("corral", producto.getNombre());
 	}
 	@Test
-	public void testGetPrecio() {
+	void testGetPrecio() {
 		assertEquals(14000,producto.getPrecio());
 	}
 	@Test
-	public void testGenerarTextoFactura() {
+	void testGenerarTextoFactura() {
 		String esperado= "corral: 14000";
 		assertEquals(esperado, producto.generarTextoFactura());
 	}
 	@Test
-	public void testProductoRepetido() {
+	void testProductoRepetido() {
 		Exception exception= assertThrows(ProductoRepetidoException.class, () ->{
 			new ProductoMenu("corral", 14000);
 		});
-		String esperado= "El producto ya esta registrado en el menu";
+		String esperado= "El producto " + producto.getNombre() + " está repetido";
 		assertEquals(esperado, exception.getMessage());
 	}
 	@Test
-	public void testProductoFaltante() {
+	void testProductoFaltante() {
 		Exception exception= assertThrows(ProductoFaltanteException.class, () ->{
 			new ProductoMenu("nada", 0);
 			producto.getNombre();
 		});
-		String esperado= "El producto ya esta no está en el menu";
+		String esperado= "El producto " + producto.getNombre() + " no aparece en la información del restaurante";
 		assertEquals(esperado, exception.getMessage());
 	}
 }
